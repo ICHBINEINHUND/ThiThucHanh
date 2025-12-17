@@ -1,4 +1,4 @@
-package org.vak.util;
+package phu.wcd.util;
 
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;

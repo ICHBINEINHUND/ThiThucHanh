@@ -1,4 +1,4 @@
-package org.vak.entity;
+package phu.wcd.entity;
 
 import jakarta.persistence.*;
 

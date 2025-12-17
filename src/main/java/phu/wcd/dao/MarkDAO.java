@@ -1,41 +1,41 @@
-package org.vak.dao;
+package phu.wcd.dao;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
-import org.vak.entity.Mark;
-import org.vak.util.JPAUtil;
+import phu.wcd.entity.Mark;
+import phu.wcd.util.JPAUtil;
 
 import java.util.List;
 
 public class MarkDAO {
 
   public List<Mark> findByStudentId(int studentId) {
-    EntityManager em = JPAUtil.getEntityManagerFactory().createEntityManager();
+    EntityManager entityManager = JPAUtil.getEntityManagerFactory().createEntityManager();
     try {
-      return em.createQuery("SELECT m FROM Mark m WHERE m.student.id = :studentId", Mark.class)
+      return entityManager.createQuery("SELECT m FROM Mark m WHERE m.student.id = :studentId", Mark.class)
                 .setParameter("studentId", studentId)
                 .getResultList();
     } finally {
-      em.close();
+      entityManager.close();
     }
   }
 
   public Mark findById(int id) {
-    EntityManager em = JPAUtil.getEntityManagerFactory().createEntityManager();
+    EntityManager entityManager = JPAUtil.getEntityManagerFactory().createEntityManager();
     try {
-      return em.find(Mark.class, id);
+      return entityManager.find(Mark.class, id);
     } finally {
-      em.close();
+      entityManager.close();
     }
   }
 
   public void update(Mark mark) {
-    EntityManager em = JPAUtil.getEntityManagerFactory().createEntityManager();
+    EntityManager entityManager = JPAUtil.getEntityManagerFactory().createEntityManager();
     EntityTransaction tx = null;
     try {
-      tx = em.getTransaction();
+      tx = entityManager.getTransaction();
       tx.begin();
-      em.merge(mark);
+      entityManager.merge(mark);
       tx.commit();
     } catch (Exception e) {
       if (tx != null && tx.isActive()) {
@@ -43,19 +43,19 @@ public class MarkDAO {
       }
       throw e;
     } finally {
-      em.close();
+      entityManager.close();
     }
   }
 
   public void delete(int id) {
-    EntityManager em = JPAUtil.getEntityManagerFactory().createEntityManager();
+    EntityManager entityManager = JPAUtil.getEntityManagerFactory().createEntityManager();
     EntityTransaction tx = null;
     try {
-      tx = em.getTransaction();
+      tx = entityManager.getTransaction();
       tx.begin();
-      Mark mark = em.find(Mark.class, id);
+      Mark mark = entityManager.find(Mark.class, id);
       if (mark != null) {
-        em.remove(mark);
+        entityManager.remove(mark);
       }
       tx.commit();
     } catch (Exception e) {
@@ -64,7 +64,7 @@ public class MarkDAO {
       }
       throw e;
     } finally {
-      em.close();
+      entityManager.close();
     }
   }
 }

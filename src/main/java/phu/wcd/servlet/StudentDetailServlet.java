@@ -1,14 +1,14 @@
-package org.vak.servlet;
+package phu.wcd.servlet;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import org.vak.dao.MarkDAO;
-import org.vak.dao.StudentDAO;
-import org.vak.entity.Mark;
-import org.vak.entity.Student;
+import phu.wcd.dao.MarkDAO;
+import phu.wcd.dao.StudentDAO;
+import phu.wcd.entity.Mark;
+import phu.wcd.entity.Student;
 
 import java.io.IOException;
 import java.util.List;
