@@ -1,0 +1,35 @@
+{
+  "name": "thithuchanh",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js",
+    "start": "node index.js",
+    "q3": "node q3.js",
+    "q3:dev": "nodemon q3.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ICHBINEINHUND/ThiThucHanh.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ICHBINEINHUND/ThiThucHanh/issues"
+  },
+  "homepage": "https://github.com/ICHBINEINHUND/ThiThucHanh#readme",
+  "dependencies": {
+    "express": "^5.2.1",
+    "mongoose": "^8.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.3.1",
+    "helmet": "^7.1.0",
+    "express-rate-limit": "^7.1.5",
+    "express-mongo-sanitize": "^2.2.0"
+  }
+}
