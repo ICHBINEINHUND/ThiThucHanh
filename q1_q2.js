@@ -1,33 +1,43 @@
-//Q1
-const q1Array = [
-  "blue",         // color
-  2,             // pets
-  true           // experience
+// Q1: (4 points)
+// Create an array containing the following 3 elements:
+// - your favorite color
+// - the number of pets you have
+// - a boolean value describing whether you have previous programming experience
+
+console.log("=== Q1: Array Creation ===");
+
+const myArray = [
+    "Blue",      // favorite color
+    2,           // number of pets
+    true         // has previous programming experience
 ];
 
-// show
-console.log('Q1 - Array:', q1Array);
-console.log('Elements [0]:', q1Array[0], '- Type:', typeof q1Array[0]);
-console.log('Elements [1]:', q1Array[1], '- Type:', typeof q1Array[1]);
-console.log('Elements [2]:', q1Array[2], '- Type:', typeof q1Array[2]);
+console.log("My Array:", myArray);
+console.log("Favorite Color:", myArray[0]);
+console.log("Number of Pets:", myArray[1]);
+console.log("Previous Programming Experience:", myArray[2]);
 
-console.log('\n----------------------------\n');
+console.log("\n");
 
-// Q2:
+// Q2: (4 points)
+// Write a script code to calculate and display the sum of all the numbers 
+// divisible by 7 between 18 and 534
+// Example: 21+28+35+...+525+532
+
+console.log("=== Q2: Sum of Numbers Divisible by 7 ===");
+
 let sum = 0;
 let numbers = [];
 
-
-let start = Math.ceil(18 / 7) * 7;  // 21
-let end = Math.floor(534 / 7) * 7;   // 532
-
-for (let i = start; i <= end; i += 7) {
-  sum += i;
-  numbers.push(i);
+// Find all numbers divisible by 7 between 18 and 534
+for (let i = 18; i <= 534; i++) {
+    if (i % 7 === 0) {
+        sum += i;
+        numbers.push(i);
+    }
 }
 
-// show
-console.log('Q2 - Calculate sum of numbers divisible by 7 between 18 and 534');
-console.log('Numbers:', numbers.join(' + '));
-console.log('Sum:', sum);
-console.log('Total count:', numbers.length);
+console.log("Numbers divisible by 7 between 18 and 534:");
+console.log(numbers.join(" + "));
+console.log("\nSum:", sum);
+console.log("Count of numbers:", numbers.length);
