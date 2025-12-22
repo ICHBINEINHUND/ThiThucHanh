@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Details - Exam Attendant</title>
+</head>
+
+<body>
+    <h1>Exam Details</h1>
+    <p>View complete exam information</p>
+
+    <div>
+        <dl>
+            <dt>Exam ID</dt>
+            <dd th:text="${exam.id}">1</dd>
+
+            <dt>Exam Name</dt>
+            <dd th:text="${exam.name}">Mathematics Final Exam</dd>
+
+            <dt>Duration</dt>
+            <dd th:text="${exam.duration} + ' minutes'">60 minutes</dd>
+
+            <dt>Description</dt>
+            <dd th:text="${exam.description}">Final exam covering all topics from semester 1</dd>
+
+            <dt>Created At</dt>
+            <dd th:text="${#temporals.format(exam.createdAt, 'dd-MM-yyyy HH:mm:ss')}">22-12-2025 10:30:00</dd>
+
+            <dt>Last Updated</dt>
+            <dd th:text="${#temporals.format(exam.updatedAt, 'dd-MM-yyyy HH:mm:ss')}">22-12-2025 10:30:00</dd>
+        </dl>
+    </div>
+
+    <hr>
+
+    <div>
+        <a th:href="@{/exams}">Back to List</a>
+
+        <form th:action="@{/exams/delete/{id}(id=${exam.id})}" method="post"
+            onsubmit="return confirm('Are you sure you want to delete this exam?');">
+            <button type="submit">Delete Exam</button>
+        </form>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Exam - Exam Attendant</title>
+</head>
+
+<body>
+    <h1>Create New Exam</h1>
+    <p>Fill in the details to create a new exam</p>
+
+    <form th:action="@{/exams/new}" th:object="${exam}" method="post">
+
+        <!-- Exam Name -->
+        <div>
+            <label for="name">Exam Name *</label>
+            <input type="text" id="name" th:field="*{name}" placeholder="e.g., Mathematics Final Exam">
+            <div th:if="${#fields.hasErrors('name')}">
+                <span th:errors="*{name}">Name error</span>
+            </div>
+        </div>
+
+        <br>
+
+        <!-- Duration -->
+        <div>
+            <label for="duration">Duration (minutes) *</label>
+            <input type="number" id="duration" th:field="*{duration}" placeholder="e.g., 60" min="1">
+            <div th:if="${#fields.hasErrors('duration')}">
+                <span th:errors="*{duration}">Duration error</span>
+            </div>
+        </div>
+
+        <br>
+
+        <!-- Description -->
+        <div>
+            <label for="description">Description *</label>
+            <textarea id="description" th:field="*{description}" placeholder="Enter exam description..."></textarea>
+            <div th:if="${#fields.hasErrors('description')}">
+                <span th:errors="*{description}">Description error</span>
+            </div>
+        </div>
+
+        <br>
+
+        <!-- Form Actions -->
+        <div>
+            <button type="submit">Submit</button>
+            <a th:href="@{/exams}">Cancel</a>
+        </div>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Attendant - Home</title>
+</head>
+
+<body>
+    <h1>Exam Attendant Application</h1>
+    <p>Manage your exams with ease and efficiency</p>
+
+    <div>
+        <img th:src="@{/images/exam.jpg}" alt="Sample Exam">
+    </div>
+
+    <p>Welcome to the Exam Attendant Application. Create, manage, and organize your exams effortlessly.</p>
+
+    <div>
+        <a th:href="@{/exams}">View Exams</a>
+        <a th:href="@{/exams/new}">New Exam</a>
+    </div>
+</body>
+
+</html>
