@@ -1,0 +1,106 @@
+@model Diploma
+@{
+    ViewData["Title"] = "Create Diploma";
+}
+
+<h2>Create New Diploma</h2>
+
+<div class="row">
+    <div class="col-md-8">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label asp-for="FullName" class="form-label">Full Name</label>
+                    <input asp-for="FullName" class="form-control" />
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label asp-for="DOB" class="form-label">Date of Birth</label>
+                    <input asp-for="DOB" type="date" class="form-control" />
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label asp-for="SexID" class="form-label">Sex</label>
+                    <select asp-for="SexID" asp-items="ViewBag.SexList" class="form-select">
+                        <option value="">-- Select --</option>
+                    </select>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label asp-for="BirthPlace" class="form-label">Birth Place</label>
+                    <input asp-for="BirthPlace" class="form-control" />
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label asp-for="RankID" class="form-label">Rank</label>
+                    <select asp-for="RankID" asp-items="ViewBag.RankList" class="form-select">
+                        <option value="">-- Select --</option>
+                    </select>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label asp-for="DiplomaTypeID" class="form-label">Diploma Type</label>
+                    <select asp-for="DiplomaTypeID" asp-items="ViewBag.DiplomaTypeList" class="form-select">
+                        <option value="">-- Select --</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label asp-for="TrainingTypeID" class="form-label">Training Type</label>
+                    <select asp-for="TrainingTypeID" asp-items="ViewBag.TrainingTypeList" class="form-select">
+                        <option value="">-- Select --</option>
+                    </select>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label asp-for="TrainingProgramID" class="form-label">Training Program</label>
+                    <select asp-for="TrainingProgramID" asp-items="ViewBag.TrainingProgramList" class="form-select">
+                        <option value="">-- Select --</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <label asp-for="VolumedBook" class="form-label">Volumed Book</label>
+                    <input asp-for="VolumedBook" class="form-control" />
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label asp-for="DecideCode" class="form-label">Decide Code</label>
+                    <input asp-for="DecideCode" class="form-control" />
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label asp-for="NumberSign" class="form-label">Number Sign</label>
+                    <input asp-for="NumberSign" class="form-control" />
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <label asp-for="RegisterNumber" class="form-label">Register Number</label>
+                    <input asp-for="RegisterNumber" class="form-control" />
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label asp-for="Language" class="form-label">Language</label>
+                    <input asp-for="Language" class="form-control" />
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label asp-for="Colour" class="form-label">Colour</label>
+                    <input asp-for="Colour" class="form-control" />
+                </div>
+            </div>
+            
+            <div class="mb-3">
+                <label asp-for="Size" class="form-label">Size</label>
+                <input asp-for="Size" class="form-control" style="max-width: 200px;" />
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Create</button>
+            <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+        </form>
+    </div>
+</div>

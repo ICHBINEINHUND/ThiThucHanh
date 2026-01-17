@@ -1,0 +1,42 @@
+@model IEnumerable<DiplomaType>
+@{
+    ViewData["Title"] = "Diploma Types";
+}
+
+<h2>Diploma Type Management</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
+
+<table class="table table-striped table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Type Name</th>
+            <th>Organization Issue</th>
+            <th>Person Issue</th>
+            <th>Position</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.DiplomaTypeID</td>
+                    <td>@item.DiplomaTypeName</td>
+                    <td>@item.OrganizationIssue</td>
+                    <td>@item.PersonIssue</td>
+                    <td>@item.Position</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.DiplomaTypeID" class="btn btn-sm btn-warning">Edit</a>
+                        <a asp-action="Delete" asp-route-id="@item.DiplomaTypeID" class="btn btn-sm btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

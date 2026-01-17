@@ -1,0 +1,6 @@
+@DMA_Lab313_HostAddress = http://localhost:5162
+
+GET {{DMA_Lab313_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

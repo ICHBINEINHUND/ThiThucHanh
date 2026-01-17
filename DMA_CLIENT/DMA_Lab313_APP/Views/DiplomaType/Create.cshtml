@@ -1,0 +1,52 @@
+@model DiplomaType
+@{
+    ViewData["Title"] = "Create Diploma Type";
+}
+
+<h2>Create New Diploma Type</h2>
+
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <div class="mb-3">
+                <label asp-for="DiplomaTypeName" class="form-label">Type Name</label>
+                <input asp-for="DiplomaTypeName" class="form-control" />
+            </div>
+            
+            <div class="mb-3">
+                <label asp-for="OrganizationIssue" class="form-label">Organization Issue</label>
+                <input asp-for="OrganizationIssue" class="form-control" />
+            </div>
+            
+            <div class="mb-3">
+                <label asp-for="PersonIssue" class="form-label">Person Issue</label>
+                <input asp-for="PersonIssue" class="form-control" />
+            </div>
+            
+            <div class="mb-3">
+                <label asp-for="Position" class="form-label">Position</label>
+                <input asp-for="Position" class="form-control" />
+            </div>
+            
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <label asp-for="Language" class="form-label">Language</label>
+                    <input asp-for="Language" class="form-control" />
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label asp-for="Colour" class="form-label">Colour</label>
+                    <input asp-for="Colour" class="form-control" />
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label asp-for="Size" class="form-label">Size</label>
+                    <input asp-for="Size" class="form-control" />
+                </div>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Create</button>
+            <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+        </form>
+    </div>
+</div>

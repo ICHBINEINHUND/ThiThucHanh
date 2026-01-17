@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - DLMMS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        .banner {
+            background-color: #4e73df;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .banner h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+        .navbar-custom {
+            background-color: #343a40;
+        }
+        .navbar-custom .nav-link {
+            color: white !important;
+            padding: 15px 20px;
+        }
+        .navbar-custom .nav-link:hover {
+            background-color: #495057;
+        }
+        .navbar-custom .nav-link.active {
+            background-color: #007bff;
+        }
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .content-wrapper {
+            padding-bottom: 70px;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    @if (Context.Session.GetString("UserName") != null)
+    {
+        <div class="banner">
+            <h1>Diploma Management System - DLMMS</h1>
+            <p>Welcome, @Context.Session.GetString("UserName")!</p>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-custom">
+            <div class="container-fluid">
+                <div class="navbar-nav">
+                    <a class="nav-link" asp-controller="Users" asp-action="Index">Users</a>
+                    <a class="nav-link" asp-controller="Diploma" asp-action="Index">Diploma</a>
+                    <a class="nav-link" asp-controller="DiplomaType" asp-action="Index">DiplomaType</a>
+                </div>
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link text-danger" asp-controller="Account" asp-action="Logout">Logout</a>
+                </div>
+            </div>
+        </nav>
+    }
+    
+    <div class="container content-wrapper">
+        @if (TempData["Error"] != null)
+        {
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                @TempData["Error"]
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        }
+        @if (TempData["Success"] != null)
+        {
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                @TempData["Success"]
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        }
+        @RenderBody()
+    </div>
+
+    @if (Context.Session.GetString("UserName") != null)
+    {
+        <footer>
+            <strong>Student Code – Class Name</strong> | DLMMS &copy; 2026
+        </footer>
+    }
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
