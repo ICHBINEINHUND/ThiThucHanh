@@ -1,0 +1,9 @@
+com\studentmanagement\util\JPAUtil.class
+com\studentmanagement\servlet\StudentDetailServlet.class
+com\studentmanagement\servlet\UpdateMarkServlet.class
+com\studentmanagement\entity\Mark.class
+com\studentmanagement\servlet\DeleteMarkServlet.class
+com\studentmanagement\servlet\StudentListServlet.class
+com\studentmanagement\dao\StudentDAO.class
+com\studentmanagement\dao\MarkDAO.class
+com\studentmanagement\entity\Student.class

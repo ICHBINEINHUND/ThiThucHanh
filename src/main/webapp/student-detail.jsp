@@ -106,9 +106,9 @@
             <h1>Student Details</h1>
 
             <div class="student-info">
-                <h2>${student.full_name}</h2>
-                <p><strong>Class:</strong> ${student.class_name}</p>
-                <p><strong>Date of Birth:</strong> ${student.date_of_birth}</p>
+                <h2>${student.fullName}</h2>
+                <p><strong>Class:</strong> ${student.className}</p>
+                <p><strong>Date of Birth:</strong> ${student.dateOfBirth}</p>
             </div>
 
             <c:if test="${param.error == 'invalid_score'}">
@@ -133,7 +133,7 @@
                                     style="display:inline;">
                                     <input type="hidden" name="markId" value="${mark.id}">
                                     <input type="hidden" name="studentId" value="${student.id}">
-                                    <input type="number" name="scoreValue" value="${mark.score_value}" min="0" max="100"
+                                    <input type="number" name="scoreValue" value="${mark.scoreValue}" min="0" max="100"
                                         step="0.1">
                                     <button type="submit" class="btn-update">Update</button>
                                 </form>
