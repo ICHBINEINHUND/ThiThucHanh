@@ -5,14 +5,14 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import com.studentmanagement.dao.MarkDAO;
+import com.studentmanagement.repository.MarkRepository;
 
 import java.io.IOException;
 
 @WebServlet("/delete-mark")
 public class DeleteMarkServlet extends HttpServlet {
 
-    private MarkDAO markDAO = new MarkDAO();
+    private MarkRepository markRepository = new MarkRepository();
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -24,7 +24,7 @@ public class DeleteMarkServlet extends HttpServlet {
             int markId = Integer.parseInt(markIdParam);
             int studentId = Integer.parseInt(studentIdParam);
 
-            markDAO.delete(markId);
+            markRepository.delete(markId);
 
             response.sendRedirect(request.getContextPath() + "/student-detail?studentId=" + studentId);
         } catch (NumberFormatException e) {

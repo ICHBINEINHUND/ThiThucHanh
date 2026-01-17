@@ -5,15 +5,15 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import com.studentmanagement.dao.MarkDAO;
-import com.studentmanagement.entity.Mark;
+import com.studentmanagement.repository.MarkRepository;
+import com.studentmanagement.model.Mark;
 
 import java.io.IOException;
 
 @WebServlet("/update-mark")
 public class UpdateMarkServlet extends HttpServlet {
 
-    private MarkDAO markDAO = new MarkDAO();
+    private MarkRepository markRepository = new MarkRepository();
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -33,10 +33,10 @@ public class UpdateMarkServlet extends HttpServlet {
                 return;
             }
 
-            Mark mark = markDAO.findById(markId);
+            Mark mark = markRepository.findById(markId);
             if (mark != null) {
                 mark.setScoreValue(scoreValue);
-                markDAO.update(mark);
+                markRepository.update(mark);
             }
 
             response.sendRedirect(request.getContextPath() + "/student-detail?studentId=" + studentId);

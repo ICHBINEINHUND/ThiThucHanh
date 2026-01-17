@@ -5,10 +5,10 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import com.studentmanagement.dao.MarkDAO;
-import com.studentmanagement.dao.StudentDAO;
-import com.studentmanagement.entity.Mark;
-import com.studentmanagement.entity.Student;
+import com.studentmanagement.repository.MarkRepository;
+import com.studentmanagement.repository.StudentRepository;
+import com.studentmanagement.model.Mark;
+import com.studentmanagement.model.Student;
 
 import java.io.IOException;
 import java.util.List;
@@ -16,8 +16,8 @@ import java.util.List;
 @WebServlet("/student-detail")
 public class StudentDetailServlet extends HttpServlet {
 
-    private StudentDAO studentDAO = new StudentDAO();
-    private MarkDAO markDAO = new MarkDAO();
+    private StudentRepository studentRepository = new StudentRepository();
+    private MarkRepository markRepository = new MarkRepository();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -31,14 +31,14 @@ public class StudentDetailServlet extends HttpServlet {
 
         try {
             int studentId = Integer.parseInt(studentIdParam);
-            Student student = studentDAO.findById(studentId);
+            Student student = studentRepository.findById(studentId);
 
             if (student == null) {
                 response.sendRedirect(request.getContextPath() + "/students");
                 return;
             }
 
-            List<Mark> marks = markDAO.findByStudentId(studentId);
+            List<Mark> marks = markRepository.findByStudentId(studentId);
 
             request.setAttribute("student", student);
             request.setAttribute("marks", marks);
