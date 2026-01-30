@@ -1,0 +1,47 @@
+### GET All Courses
+GET http://localhost:8080/VAK/api/courses
+Accept: application/json
+###
+### GET Course by ID
+GET http://localhost:8080/VAK/api/courses/1
+Accept: application/json
+###
+### POST Create Course
+POST http://localhost:8080/VAK/api/courses
+Content-Type: application/json
+{
+  "code": "CS401",
+  "title": "Machine Learning",
+  "credit": 4
+}
+###
+### PUT Update Course
+PUT http://localhost:8080/VAK/api/courses/1
+Content-Type: application/json
+{
+  "code": "CS101",
+  "title": "Introduction to Programming Updated",
+  "credit": 4
+}
+###
+### DELETE Course
+DELETE http://localhost:8080/VAK/api/courses/4
+Accept: application/json
+###
+### GET Search by Code
+GET http://localhost:8080/VAK/api/courses/search?code=CS
+Accept: application/json
+###
+### GET Pagination
+GET http://localhost:8080/VAK/api/courses/pagination?page=1&limit=2
+Accept: application/json
+###
+
+Method	URL	Body (JSON)
+GET	http://localhost:8080/VAK/api/courses	-
+GET	http://localhost:8080/VAK/api/courses/1	-
+POST	http://localhost:8080/VAK/api/courses	{"code": "CS401", "title": "Machine Learning", "credit": 4}
+PUT	http://localhost:8080/VAK/api/courses/1	{"code": "CS101", "title": "Updated Title", "credit": 4}
+DELETE	http://localhost:8080/VAK/api/courses/4	-
+GET	http://localhost:8080/VAK/api/courses/search?code=CS	-
+GET	http://localhost:8080/VAK/api/courses/pagination?page=1&limit=2	-
