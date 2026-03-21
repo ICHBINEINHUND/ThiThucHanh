@@ -1,0 +1,67 @@
+### Variables
+@baseUrl = http://localhost:8080/CourseManagement
+
+### 1) GET Return the full list of students.
+GET {{baseUrl}}/students
+Accept: application/json
+
+### 2) POST Create a new student (Valid).
+POST {{baseUrl}}/students
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "Jane Doe",
+  "age": 22,
+  "major": "Computer Science"
+}
+
+### 3) POST Create a new student (Invalid - Age < 18).
+POST {{baseUrl}}/students
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "John Smith",
+  "age": 16,
+  "major": "Mathematics"
+}
+
+### 4) POST Create a new student (Invalid - Empty Name).
+POST {{baseUrl}}/students
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "",
+  "age": 20,
+  "major": "Physics"
+}
+
+### 5) GET Return a specific student.
+# Assuming student ID 1 exists after earlier steps
+GET {{baseUrl}}/students/1
+Accept: application/json
+
+### 6) PUT Update a student.
+PUT {{baseUrl}}/students/1
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "Jane Doe Updated",
+  "age": 23,
+  "major": "Software Engineering"
+}
+
+### 7) GET Search students by name (case-insensitive).
+GET {{baseUrl}}/students/search?name=jane
+Accept: application/json
+
+### 8) GET Return a paginated list of students.
+GET {{baseUrl}}/students/pagination?page=1&limit=5
+Accept: application/json
+
+### 9) DELETE Delete a student.
+DELETE {{baseUrl}}/students/1
+Accept: application/json
